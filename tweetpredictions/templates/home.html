@@ -1,0 +1,52 @@
+{% extends "home.html" %}
+{% block content %}
+ <h1><a href='/'>Tweet Predictions!</a></h1>
+    
+ {% block content %}
+     <h2>Add User:</h2>
+     <form action="/user" method="post">
+         <input type="text" name="user_name" placeholder="User to add">
+         <input type="submit" value="Add User">
+     </form>
+     <h2>Users to Compare:</h2>
+     <form action="/compare" method="post">
+         <input type="text" name="user_1" placeholder="First User to Compare">
+         <input type="text" name="user_2" placeholder="Second User to Compare">
+         <input type="text" name="tweet_text" placeholder="Tweet to Predict">
+         <input type="submit" value="Make Prediction">
+     </form>
+     <h2>All Added Users:</h2>
+     {% for user in users %}
+     <li>{{ user.name }}</li>
+     {% endfor %}
+ {% endblock %}
+ 
+ <div class="jumbotron">
+         <h1 class="display-4">Hello, world!</h1>
+         <p class="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
+         <hr class="my-4">
+         <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
+         <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
+ </div>
+ {% endblock %}
+
+
+
+ {% block content %}
+            <h2>Add User:</h2>
+            <form action="/user" method="post">
+                <input type="text" name="user_name" placeholder="User to add">
+                <input type="submit" value="Add User">
+            </form>
+            <h2>Users to Compare:</h2>
+            <form action="/compare" method="post">
+                <input type="text" name="user_1" placeholder="First User to Compare">
+                <input type="text" name="user_2" placeholder="Second User to Compare">
+                <input type="text" name="tweet_text" placeholder="Tweet to Predict">
+                <input type="submit" value="Make Prediction">
+            </form>
+            <h2>All Added Users:</h2>
+            {% for user in users %}
+            <li>{{ user.name }}</li>
+            {% endfor %}
+        {% endblock %}

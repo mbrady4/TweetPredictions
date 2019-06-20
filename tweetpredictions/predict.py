@@ -4,6 +4,12 @@ import matplotlib.pyplot as plt
 import numpy as np 
 import os
 import time
+
+def warn(*args, **kwargs):
+    pass
+import warnings
+warnings.warn = warn
+
 from sklearn.linear_model import LogisticRegression
 from .models import DB, User, Predictions
 from .twitter import BASILICA, add_or_update_user

@@ -15,8 +15,7 @@ python-dotenv = "*"
 scikit-learn = "*"
 matplotlib = "*"
 gunicorn = "*"
-psycopg2 = "==2.7"
-psycopg2-binary = "*"
+psycopg2 = "*"
 
 [requires]
 python_version = "3.6"

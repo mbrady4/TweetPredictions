@@ -14,6 +14,7 @@ def create_app():
     @app.route('/')
     def root():
         predictions = Predictions.query.all()
+        predictions.reverse()
         return render_template('base.html', title='Home', predictions=predictions)
 
 
@@ -67,6 +68,7 @@ def create_app():
     def archive():
         try:
             predictions = Predictions.query.all()
+            predictions.reverse()
             message = 'Success!'
         except Exception as e:
             message = f'Error Viewing Past Predictions: {e}'

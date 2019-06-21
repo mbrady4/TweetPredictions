@@ -92,7 +92,7 @@ def visualize_prediction(u1_name, u1_prob, u2_name, u2_prob):
         if filename.startswith('compare_'):
             os.remove('tweetpredictions/static/images/' + filename)
 
-    plt.savefig("tweetpredictions/static/" + new_viz_name)
+    plt.savefig("tweetpredictions/static/" + new_viz_name, bbox_inches='tight')
     return new_viz_name
 
 def add_prediction(text, u1_name, u1_prob, u2_name, u2_prob):
@@ -100,9 +100,15 @@ def add_prediction(text, u1_name, u1_prob, u2_name, u2_prob):
         pred = Predictions()
         DB.session.add(pred)
         pred.text = text
-        pred.user_1_name = u1_name
+        if '@' in u1_name:
+            pred.user_1_name = u1_name
+        else:
+            pred.user_1_name = '@' + u1_name
         pred.user_1_prob = round(u1_prob * 100, 2)
-        pred.user_2_name = u2_name
+        if '@' in u2_name:
+            pred.user_2_name = u2_name
+        else:
+            pred.user_2_name = '@' + u2_name
         pred.user_2_prob = round(u2_prob *100, 2)
     except Exception as e:
         print(f'Error adding Prediction: {e}')

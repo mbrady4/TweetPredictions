@@ -1,1 +1,1 @@
-web: gunicorn tweetpredictions:APP -t 120
+web: gunicorn tweetpredictions:APP -t 240

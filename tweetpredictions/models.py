@@ -7,7 +7,7 @@ DB = SQLAlchemy()
 class User(DB.Model):
     """Twitter users that we pull and analyze Tweets for."""
     id = DB.Column(DB.Integer, primary_key=True)
-    name = DB.Column(DB.String(15))
+    name = DB.Column(DB.String(16))
     newest_tweet_id = DB.Column(DB.BigInteger)
 
     def __repr__(self):
@@ -30,7 +30,7 @@ class Predictions(DB.Model):
     """Predictions Made"""
     id = DB.Column(DB.Integer, primary_key=True)
     text = DB.Column(DB.Unicode(500))
-    user_1_name = DB.Column(DB.String(15))
+    user_1_name = DB.Column(DB.String(16))
     user_1_prob = DB.Column(DB.Integer)
-    user_2_name = DB.Column(DB.String(15))
+    user_2_name = DB.Column(DB.String(16))
     user_2_prob = DB.Column(DB.Integer)

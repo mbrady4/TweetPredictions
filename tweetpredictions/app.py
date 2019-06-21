@@ -46,9 +46,9 @@ def create_app():
             u1_prob, u2_prob, less_likely_user, more_likely_user = predict_user(user_1,
                                                                                 user_2,
                                                                                 input_text)
-            viz_name = visualize_prediction(user_1, u1_prob, user_2, u2_prob)
             u1_tweets = display_tweets(more_likely_user)
             u2_tweets = display_tweets(less_likely_user)
+            viz_name = visualize_prediction(user_1, u1_prob, user_2, u2_prob)
             add_prediction(input_text, user_1, u1_prob, user_2, u2_prob)
             message = 'Comparision Successfully Made'
         except Exception as e:

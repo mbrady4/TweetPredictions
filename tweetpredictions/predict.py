@@ -2,7 +2,7 @@ import matplotlib
 matplotlib.use('agg')
 import matplotlib.pyplot as plt
 import numpy as np 
-import os
+#import os
 import time
 
 def warn(*args, **kwargs):
@@ -88,9 +88,10 @@ def visualize_prediction(u1_name, u1_prob, u2_name, u2_prob):
     t = t.replace('.', '')
     new_viz_name = 'images/compare_' + t + '.png'
 
-    for filename in os.listdir('tweetpredictions/static/images/'):
-        if filename.startswith('compare_'):
-            os.remove('tweetpredictions/static/images/' + filename)
+    # Not needed for Heroku Deployment (dynos have an empheral file storage system)
+    #for filename in os.listdir('tweetpredictions/static/images/'):
+    #    if filename.startswith('compare_'):
+    #        os.remove('tweetpredictions/static/images/' + filename)
 
     plt.savefig("tweetpredictions/static/" + new_viz_name, bbox_inches='tight')
     return new_viz_name
